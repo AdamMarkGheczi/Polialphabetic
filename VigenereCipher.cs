@@ -13,8 +13,9 @@
         private char ShiftCharacter(char baseChar, char shiftChar, bool forward)
         {
             string casedAlphabet = char.IsUpper(baseChar) ? alphabet.ToUpper() : alphabet;
+            char casedShiftChar = char.IsUpper(baseChar) ? char.ToUpper(shiftChar) : shiftChar;
 
-            int shiftAmount = forward ? casedAlphabet.IndexOf(shiftChar) : -casedAlphabet.IndexOf(shiftChar);
+            int shiftAmount = forward ? casedAlphabet.IndexOf(casedShiftChar) : -casedAlphabet.IndexOf(casedShiftChar);
 
             return casedAlphabet[(casedAlphabet.IndexOf(baseChar) + shiftAmount + casedAlphabet.Length) % casedAlphabet.Length];
         }
